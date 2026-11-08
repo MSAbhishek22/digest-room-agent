@@ -1,0 +1,52 @@
+/**
+ * Digest Room — the 3D depth pipeline.
+ *
+ * Pure CSS 3D (perspective + rotateX). No WebGL, no dependency.
+ * Reduced motion or unsupported transforms: renders as a flat row with
+ * the same counts and the same click behaviour.
+ */
+.digest-pipeline {
+  perspective: 900px;
+}
+
+.digest-pipeline-stage {
+  transform: rotateX(10deg);
+  transform-style: preserve-3d;
+  transition:
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out;
+  box-shadow:
+    0 1px 0 rgba(28, 26, 23, 0.12),
+    0 10px 0 -4px rgba(28, 26, 23, 0.18),
+    0 18px 24px -12px rgba(28, 26, 23, 0.35);
+}
+
+.digest-pipeline-stage:hover,
+.digest-pipeline-stage:focus-visible {
+  transform: rotateX(0deg) translateY(-4px);
+  box-shadow:
+    0 1px 0 rgba(28, 26, 23, 0.12),
+    0 14px 0 -4px rgba(28, 26, 23, 0.18),
+    0 24px 32px -12px rgba(28, 26, 23, 0.4);
+}
+
+.digest-pipeline-stage[aria-pressed="true"] {
+  transform: rotateX(0deg) translateY(-2px);
+  outline: 2px solid #c2410c;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .digest-pipeline {
+    perspective: none;
+  }
+
+  .digest-pipeline-stage,
+  .digest-pipeline-stage:hover,
+  .digest-pipeline-stage:focus-visible,
+  .digest-pipeline-stage[aria-pressed="true"] {
+    transform: none;
+    box-shadow: 0 1px 0 rgba(28, 26, 23, 0.12);
+    transition: none;
+  }
+}
