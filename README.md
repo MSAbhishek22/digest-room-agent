@@ -1,3 +1,15 @@
+# Digest Room Agent
+
+An agent-native chat app — a clean, ChatGPT-style shell with chat at the centre, durable threads, auth and live sync.
+
+**Live demo:** https://digest-room-agent.vercel.app
+
+> Note: the live app opens on its sign-up / sign-in screen ("Welcome — Create an account to get started"), so a signed-out visitor meets the account flow first.
+
+This repo is built on the agent-native "Chat" starter template (kept verbatim below): it gives you the app–agent loop wired end to end and one example action, so you can add your own UI, data, and actions on top. It is the app base for the Digest Room agent; the original Digest Room workflow concept lives in the sister repo [digest-room](https://github.com/MSAbhishek22/digest-room).
+
+---
+
 # Chat
 
 The minimal agent-native starter app — a clean, ChatGPT-style shell with chat at
